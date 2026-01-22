@@ -2,6 +2,7 @@ let tossCount = 0;
 let results = [];
 
 const tossBtn = document.getElementById('toss-btn');
+const resetBtn = document.getElementById('reset-btn');
 const coins = document.querySelectorAll('.coin');
 const hexagramDisplay = document.getElementById('hexagram');
 const resultArea = document.getElementById('result');
@@ -50,6 +51,8 @@ tossBtn.addEventListener('click', () => {
         if (tossCount === 6) {
             tossBtn.innerText = "卦象已成";
             tossBtn.disabled = true;
+            tossBtn.classList.add('hidden');    // 隐藏起卦按钮
+            resetBtn.classList.remove('hidden'); // 显示重测按钮
             showResult();
         } else {
             tossBtn.innerText = `再掷一爻 (${tossCount}/6)`;
@@ -95,4 +98,38 @@ function showResult() {
         // 触发 AI (如果你有那个函数的话)
         // triggerAIAdvice(gua); 
     }
+
+}
+// 1. 监听重置按钮点击
+resetBtn.addEventListener('click', () => {
+    resetDivination();
+});
+
+// 2. 重置功能的具体实现
+function resetDivination() {
+    // 重置逻辑数据
+    tossCount = 0;
+    results = [];
+
+    // 清空界面展示
+    hexagramDisplay.innerHTML = ""; 
+    resultArea.classList.add('hidden'); 
+    document.getElementById('question').value = ""; // 清空用户输入
+
+    // 切换按钮显示
+    tossBtn.classList.remove('hidden');
+    tossBtn.disabled = false;
+    tossBtn.innerText = "启 卦";
+    resetBtn.classList.add('hidden');
+
+    // 清除硬币状态
+    coins.forEach(coin => {
+        coin.classList.remove('is-yang', 'is-yin', 'tossing');
+        coin.innerText = "";
+        // 恢复到初始图片
+        coin.style.backgroundImage = "url('assets/coin_yang.png')"; 
+    });
+
+    // 平滑滚动回顶部（增强体验）
+    window.scrollTo({ top: 0, behavior: 'smooth' });
 }
