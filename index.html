@@ -36,26 +36,27 @@
             
             <div class="action-area">
     <button id="toss-btn" class="btn-grad">启 卦</button>
-    <button id="reset-btn" class="btn-grad hidden" style="margin-top: 20px;">再测一回</button>
 </div>
         </main>
 
-        <section class="result-card hidden" id="result">
-            <div class="card-content">
-                <div class="gua-header">
-                    <span class="pre-title">得卦</span>
-                    <h2 id="gua-name">加载中...</h2>
-                </div>
-                <div id="gua-description" class="text-block old-text"></div>
-                
-                <div class="ai-section">
-                    <div class="ai-title">
-                        <span class="ai-icon">◈</span> 天机启示 (AI)
-                    </div>
-                    <div id="ai-text" class="text-block ai-content">正在研读...</div>
-                </div>
-            </div>
-        </section>
+       <section class="result-card hidden" id="result">
+    <div class="card-content">
+        <div class="gua-header">
+            <span class="pre-title">得卦</span>
+            <h2 id="gua-name">加载中...</h2>
+        </div>
+        <div id="gua-description" class="text-block old-text"></div>
+        
+        <div class="ai-section">
+            <div class="ai-title"><span class="ai-icon">◈</span> 天机启示</div>
+            <div id="ai-text" class="text-block ai-content">正在研读...</div>
+        </div>
+
+        <div class="reset-zone" style="text-align: center; margin-top: 30px; padding-top: 20px; border-top: 1px dashed rgba(212,175,55,0.2);">
+            <button id="reset-btn" class="btn-secondary hidden">再 测 一 回</button>
+        </div>
+        </div>
+</section>
     </div>
 
     <script src="database.js"></script>
@@ -63,4 +64,5 @@
 </body>
 
 </html>
+
 
