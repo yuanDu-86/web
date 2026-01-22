@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>墨影占卜 - 易经启示</title>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@300;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="app-wrapper">
+        <header class="main-header">
+            <h1>墨影占卜</h1>
+            <p class="subtitle">诚心一问，听天命流转</p>
+        </header>
+
+        <main class="divination-board">
+            <section class="input-section">
+                <input type="text" id="question" placeholder="在此输入心中所求之事..." autocomplete="off">
+                <div class="input-underline"></div>
+            </section>
+
+            <section class="ritual-area">
+                <div class="hexagram-container">
+                    <div class="hexagram-display" id="hexagram">
+                        </div>
+                </div>
+                
+                <div class="coins-container" id="coins">
+                    <div class="coin"></div>
+                    <div class="coin"></div>
+                    <div class="coin"></div>
+                </div>
+            </section>
+            
+            <div class="action-area">
+                <button id="toss-btn" class="btn-grad">启 卦</button>
+            </div>
+        </main>
+
+        <section class="result-card hidden" id="result">
+            <div class="card-content">
+                <div class="gua-header">
+                    <span class="pre-title">得卦</span>
+                    <h2 id="gua-name">加载中...</h2>
+                </div>
+                <div id="gua-description" class="text-block old-text"></div>
+                
+                <div class="ai-section">
+                    <div class="ai-title">
+                        <span class="ai-icon">◈</span> 天机启示 (AI)
+                    </div>
+                    <div id="ai-text" class="text-block ai-content">正在研读...</div>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <script src="database.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
